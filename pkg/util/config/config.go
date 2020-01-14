@@ -92,7 +92,7 @@ type Config struct {
 	EtcdHost              string            `name:"etcd_host" default:""` // special values: the empty string "" means Patroni will use K8s as a DCS
 	DockerImage           string            `name:"docker_image" default:"registry.opensource.zalan.do/acid/spilo-cdp-12:1.6-p16"`
 	Sidecars              map[string]string `name:"sidecar_docker_images"`
-	PodServiceAccountName string            `name:"pod_service_account_name" default:"postgres-operator-patroni"`
+	PodServiceAccountName string            `name:"pod_service_account_name" default:"postgres-pod"`
 	// value of this string must be valid JSON or YAML; see initPodServiceAccount
 	PodServiceAccountDefinition            string            `name:"pod_service_account_definition" default:""`
 	PodServiceAccountRoleDefinition        string            `name:"pod_service_account_role_definition" default:""`

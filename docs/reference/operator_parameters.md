@@ -152,7 +152,7 @@ configuration they are grouped under the `kubernetes` key.
   service account used by Patroni running on individual Pods to communicate
   with the operator. Required even if native Kubernetes support in Patroni is
   not used, because Patroni keeps pod labels in sync with the instance role.
-  The default is `postgres-operator-patroni`.
+  The default is `postgres-pod`.
 
 * **pod_service_account_definition**
   on Postgres cluster creation the operator tries to create the service account
@@ -169,12 +169,12 @@ configuration they are grouped under the `kubernetes` key.
   in a valid YAML/JSON string. The default is empty.
 
 * **pod_service_account_role_binding_definition**
-  the created service account and role are referenced with a RoleBinding. When
-  overwriting its definition with this parameters check that specified
-  service account and role either exist in the K8s cluster or will be created
-  by the operator. While it's possible to also reference cluster roles in the
-  YAML/JSON string definition the binding itself can only be a RoleBinding, not
-  a ClusterRoleBinding. The default is empty.
+  the created service account and role are referenced with a role binding. When
+  overwriting its definition with this parameters using a valid YAML/JSON string
+  check that the specified service account and role either exist in the K8s
+  cluster or will be created by the operator. While it's possible to also
+  reference cluster roles, the binding itself can only be of kind `RoleBinding`,
+  not `ClusterRoleBinding`. The default is empty.
 
 * **pod_terminate_grace_period**
   Postgres pods are [terminated forcefully](https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods)

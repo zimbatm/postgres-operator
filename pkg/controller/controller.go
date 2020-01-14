@@ -166,7 +166,7 @@ func (c *Controller) initPodServiceAccount() {
 			"apiVersion": "v1",
 			"kind": "ServiceAccount",
 			"metadata": {
-				"name": "postgres-operator-patroni"
+				"name": "postgres-pod"
 			}
 		}`
 	}
@@ -213,14 +213,14 @@ func (c *Controller) initRole() {
 		                "endpoints"
 		            ],
 		            "verbs": [
-		                "get",
-		                "patch",
-		                "update",
 		                "create",
-		                "list",
-		                "watch",
 		                "delete",
 		                "deletecollection"
+		                "get",
+		                "list",
+		                "patch",
+		                "update",
+		                "watch"
 		            ]
 		        },
 		        {
@@ -232,9 +232,9 @@ func (c *Controller) initRole() {
 		            ],
 		            "verbs": [
 		                "get",
+		                "list",
 		                "patch",
 		                "update",
-		                "list",
 		                "watch"
 		            ]
 		        },
